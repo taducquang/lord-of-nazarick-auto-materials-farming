@@ -1,7 +1,7 @@
 # 🎣 Android Fishing Bot Automation
 
 This bot automates the farming materials in an Android game using ADB and OpenCV. It works by detecting on-screen cues and tapping/clicking automatically in your Android emulator.
-
+Please notice that it works with just 1920 x 1080 resolution, if you have a different resolution you have to change images file.
 ---
 
 ## 📦 Requirements
