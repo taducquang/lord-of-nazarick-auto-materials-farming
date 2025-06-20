@@ -9,6 +9,7 @@ import sys
 # === ADB config ===
 # adb_device = "127.0.0.1:5555"
 adb_device = "127.0.0.1:21503"
+main_screen = (860, 400)
 
 # === Image Templates ===
 print("Loading templates...")
@@ -44,7 +45,7 @@ template_materials = {
     }
 }
 
-main_screen = (860, 400)
+material_order = ["wood", "stone", "crystal", "fur"]
 
 print("All templates loaded successfully.")
 
@@ -175,9 +176,10 @@ def action_worker(name, material, action):
     print("[ACTION] Action thread stopped.")
 
 def run_macro_attempt():
-    for name, data in template_materials.items():
-        print(f"Processing {name} material")
-        action_worker(name, data["template"], data["action"])
+    for material in material_order:
+        data = template_materials[material]
+        print(f"Processing {material} material")
+        action_worker(material, data["template"], data["action"])
 
 def main():
     print("[INFO] Collecting materials starting...")
